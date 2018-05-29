@@ -155,7 +155,11 @@ class HMM {
             char c, s;
             bool first = true;
             std::reverse(stateTrace.begin(), stateTrace.end());
+            ofstream results("results.txt");
+            int i = 1;
             for (auto it = stateTrace.begin(); it != stateTrace.end(); it++) {
+                results << i << '\t' << (*it) + 1 << endl;
+                i++;
                 c = char((*it) +65);
                 if (*it == 26)
                     c = ' ';
