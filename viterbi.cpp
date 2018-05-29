@@ -81,7 +81,7 @@ class HMM {
         }
 
         //Uses a log-space approach to avoid rounding to zero
-        vector<int> viterbi() {
+        void viterbi() {
             vector<vector<double> > probs(this->hidStatesNum);
             vector<vector<int> > pathTrace(this->hidStatesNum);
 
@@ -158,7 +158,7 @@ class HMM {
             ofstream results("results.txt");
             int i = 1;
             for (auto it = stateTrace.begin(); it != stateTrace.end(); it++) {
-                results << i << '\t' << (*it) + 1 << endl;
+                results << i << ", " << (*it) + 1 << endl;
                 i++;
                 c = char((*it) +65);
                 if (*it == 26)
